@@ -168,7 +168,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this2.register(_this2.form);
 
               case 4:
-                _this2.$router.replace({
+                _this2.$router.push({
                   name: "home"
                 });
 

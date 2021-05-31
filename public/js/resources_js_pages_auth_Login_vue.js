@@ -133,7 +133,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return _this.login(_this.form);
 
               case 4:
-                _this.$router.replace({
+                _this.$router.push({
                   name: "home"
                 });
 

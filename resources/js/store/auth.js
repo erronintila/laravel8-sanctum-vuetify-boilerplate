@@ -24,16 +24,16 @@ export default {
         }
     },
     actions: {
-        async AUTH_LOGIN({ dispatch }, credentials) {
+        async AUTH_LOGIN({ dispatch }, payload) {
             await axios.get("/sanctum/csrf-cookie");
-            await axios.post("/login", credentials);
+            await axios.post("/login", payload);
 
             return dispatch("AUTH_USER");
         },
 
-        async AUTH_REGISTER({ dispatch }, credentials) {
+        async AUTH_REGISTER({ dispatch }, payload) {
             await axios.get("/sanctum/csrf-cookie");
-            await axios.post("/register", credentials);
+            await axios.post("/register", payload);
 
             return dispatch("AUTH_USER");
         },

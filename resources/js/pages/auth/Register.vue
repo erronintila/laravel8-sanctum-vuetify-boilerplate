@@ -127,7 +127,7 @@ export default {
             try {
                 if (this.$refs.form.validate()) {
                     await this.register(this.form);
-                    this.$router.replace({ name: "home" });
+                    this.$router.push({ name: "home" });
                 }
             } catch (error) {
                 this.errors = error.response.data.errors;
