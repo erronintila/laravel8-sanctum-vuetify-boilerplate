@@ -1900,6 +1900,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "app",
@@ -38677,7 +38681,7 @@ var render = function() {
             [
               _c(
                 "v-toolbar-title",
-                { staticClass: "hidden-sm-and-down ml-0 pl-4" },
+                { staticClass: "hidden-sm-and-down ml-0 pl-4 mr-4" },
                 [
                   _c(
                     "router-link",
@@ -38693,6 +38697,14 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _vm.authenticated
+                ? _c(
+                    "v-btn",
+                    { attrs: { text: "", to: { name: "dashboard" } } },
+                    [_vm._v("\n            Dashboard\n        ")]
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),

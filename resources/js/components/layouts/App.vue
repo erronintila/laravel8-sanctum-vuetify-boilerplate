@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-app-bar v-if="user && authenticated" app color="primary" dark>
-            <v-toolbar-title class="hidden-sm-and-down ml-0 pl-4">
+            <v-toolbar-title class="hidden-sm-and-down ml-0 pl-4 mr-4">
                 <router-link
                     :to="{ name: 'home' }"
                     style="text-decoration: none; color: inherit;"
@@ -9,6 +9,10 @@
                     <span class="title">Home</span>
                 </router-link>
             </v-toolbar-title>
+
+            <v-btn text v-if="authenticated" :to="{ name: 'dashboard' }">
+                Dashboard
+            </v-btn>
 
             <v-spacer></v-spacer>
 
