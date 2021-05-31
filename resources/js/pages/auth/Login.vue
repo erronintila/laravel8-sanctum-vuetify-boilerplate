@@ -1,0 +1,104 @@
+<template>
+    <v-container fill-height fluid>
+        <v-row>
+            <v-col align="center" justify="center">
+                <v-card elevation="0" light width="30rem">
+                    <v-card-title>
+                        <h3 class="headline">
+                            Login
+                        </h3>
+                    </v-card-title>
+
+                    <v-card-text>
+                        <v-form ref="form" v-model="valid">
+                            <v-text-field
+                                v-model="form.email"
+                                label="Email Address"
+                                :rules="rules.email"
+                                :error-messages="errors.email"
+                                @input="errors = []"
+                                type="email"
+                                prepend-icon="mdi-email-outline"
+                            ></v-text-field>
+                            <v-text-field
+                                v-model="form.password"
+                                label="Password"
+                                :rules="rules.password"
+                                :error-messages="errors.password"
+                                @input="errors = []"
+                                type="password"
+                                prepend-icon="mdi-lock-outline"
+                            ></v-text-field>
+                        </v-form>
+                    </v-card-text>
+                    <v-card-actions>
+                        <div class="d-flex">
+                            <v-btn
+                                text
+                                color="primary"
+                                class="mr-4"
+                                :to="{ name: 'register' }"
+                            >
+                                Register
+                            </v-btn>
+                        </div>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="primary dark"
+                            class="mr-4"
+                            @click="onLogin"
+                        >
+                            Login
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+export default {
+    name: "login",
+    data() {
+        return {
+            valid: true,
+            form: {
+                email: "",
+                password: ""
+            },
+            errors: {
+                email: [],
+                password: []
+            },
+            rules: {
+                email: [
+                    v => !!v || "This field is required",
+                    v =>
+                        !v ||
+                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,5})+$/.test(v) ||
+                        "Invalid Email address"
+                ],
+                password: [v => !!v || "This field is required"]
+            }
+        };
+    },
+    methods: {
+        ...mapActions({
+            login: "auth/AUTH_LOGIN"
+        }),
+        async onLogin() {
+            try {
+                if (this.$refs.form.validate()) {
+                    await this.login(this.form);
+                    this.$router.replace({ name: "home" });
+                }
+            } catch (error) {
+                this.errors = error.response.data.errors;
+                alert(error);
+            }
+        }
+    }
+};
+</script>
