@@ -2113,18 +2113,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
   base: process.env.BASE_URL,
   routes: [].concat(_toConsumableArray(_auth__WEBPACK_IMPORTED_MODULE_1__.default), _toConsumableArray(_pages__WEBPACK_IMPORTED_MODULE_2__.default))
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
-router.beforeEach(function (to, from, next) {
-  if (to.matched.some(function (record) {
-    return record.meta.auth;
-  }) && !_store_index__WEBPACK_IMPORTED_MODULE_0__.default.getters.authenticated) {
-    next({
-      name: "login"
-    });
-  } else {
-    next();
-  }
-}); // router.beforeEach((to, from, next) => {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router); // router.beforeEach((to, from, next) => {
+//     if (
+//         to.matched.some(record => record.meta.auth) &&
+//         !store.getters.authenticated
+//     ) {
+//         next({ name: "login" });
+//     } else if (to.matched.some(record => record.meta.guest)) {
+//         next({ name: "home" });
+//     } else {
+//         next();
+//     }
+// });
+// router.beforeEach((to, from, next) => {
 //     if (to.matched.some(record => record.meta.auth)) {
 //         console.log(store.getters.authenticated);
 //         if (!store.getters.authenticated) {
