@@ -5,6 +5,11 @@ const pages_routes = [
         name: "home"
     },
     {
+        path: "/profile",
+        component: () => import("../pages/Profile"),
+        name: "profile"
+    },
+    {
         path: "/dashboard",
         component: () => import("../pages/Dashboard"),
         name: "dashboard"
