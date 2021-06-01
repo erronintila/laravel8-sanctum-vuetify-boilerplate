@@ -1,5 +1,10 @@
 const pages_routes = [
     {
+        path: "/test",
+        component: () => import("../pages/Test"),
+        name: "test",
+    },
+    {
         path: "/",
         component: () => import("../pages/Home"),
         name: "home",

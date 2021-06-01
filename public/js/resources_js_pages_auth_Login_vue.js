@@ -249,8 +249,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-container",
-    { attrs: { "fill-height": "", fluid: "" } },
+    "div",
+    { attrs: { "fill-height": "" } },
     [
       _c(
         "v-row",

@@ -1,12 +1,12 @@
 <template>
-    <v-container>
-        <h1>Profile</h1>
+    <div>
+        <p class="title">Profile</p>
         <div class="my-4">
             <p>Name: {{ user ? user.name : "" }}</p>
             <p>Email: {{ user ? user.email : "" }}</p>
             <p>Date Created: {{ user ? user.created_at : "" }}</p>
         </div>
-    </v-container>
+    </div>
 </template>
 
 <script>

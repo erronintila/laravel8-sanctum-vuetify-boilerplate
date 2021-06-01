@@ -1,12 +1,5 @@
 <template>
-    <div></div>
+    <div>
+        <p class="title">Home Page</p>
+    </div>
 </template>
-
-<script>
-export default {
-    name: "home",
-    data() {
-        return {};
-    }
-};
-</script>

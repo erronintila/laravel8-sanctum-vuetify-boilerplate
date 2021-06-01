@@ -122,8 +122,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-container", [
-    _c("h1", [
+  return _c("div", [
+    _c("p", { staticClass: "title" }, [
       _vm._v("Welcome "),
       _vm.user ? _c("span", [_vm._v(_vm._s(_vm.user.name))]) : _vm._e()
     ])

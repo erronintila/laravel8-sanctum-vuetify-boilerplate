@@ -1,7 +1,7 @@
 <template>
-    <v-container>
-        <h1>Welcome <span v-if="user">{{ user.name }}</span></h1>
-    </v-container>
+    <div>
+        <p class="title">Welcome <span v-if="user">{{ user.name }}</span></p>
+    </div>
 </template>
 
 <script>
