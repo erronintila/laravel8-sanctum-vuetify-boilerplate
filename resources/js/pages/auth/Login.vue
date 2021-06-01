@@ -35,7 +35,7 @@
                         <div class="d-flex">
                             <v-btn
                                 text
-                                color="primary"
+                                color="blue"
                                 class="mr-4"
                                 :to="{ name: 'register' }"
                             >
@@ -43,11 +43,7 @@
                             </v-btn>
                         </div>
                         <v-spacer></v-spacer>
-                        <v-btn
-                            color="primary dark"
-                            class="mr-4"
-                            @click="onLogin"
-                        >
+                        <v-btn color="blue" class="mr-4" dark @click="onLogin">
                             Login
                         </v-btn>
                     </v-card-actions>

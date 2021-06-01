@@ -104,6 +104,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login",
@@ -464,7 +465,7 @@ var render = function() {
                         "v-btn",
                         {
                           staticClass: "mr-4",
-                          attrs: { color: "primary dark" },
+                          attrs: { color: "blue", dark: "" },
                           on: { click: _vm.onRegister }
                         },
                         [

@@ -63,8 +63,9 @@
                         </div>
                         <v-spacer></v-spacer>
                         <v-btn
-                            color="primary dark"
+                            color="blue"
                             class="mr-4"
+                            dark
                             @click="onRegister"
                         >
                             Register

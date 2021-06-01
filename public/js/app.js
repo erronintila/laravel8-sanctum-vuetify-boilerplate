@@ -2020,11 +2020,164 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "app",
   data: function data() {
     return {
+      profile_menu: false,
+      notification_menu: false,
+      message: false,
+      hints: true,
       left_drawer: true,
       left_drawer_items: [{
         icon: "mdi-chart-areaspline",
@@ -2044,6 +2197,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             name: "profile"
           }
         }]
+      }],
+      notifications: [{
+        action: "15 min",
+        headline: "Brunch this weekend?",
+        subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+        title: "Ali Connors"
+      }, {
+        action: "2 hr",
+        headline: "Summer BBQ",
+        subtitle: "Wish I could come, but I'm out of town this weekend.",
+        title: "me, Scrott, Jennifer"
+      }, {
+        action: "6 hr",
+        headline: "Oui oui",
+        subtitle: "Do you have Paris recommendations? Have you ever been?",
+        title: "Sandra Adams"
       }]
     };
   },
@@ -38939,16 +39108,204 @@ var render = function() {
               _c("v-spacer"),
               _vm._v(" "),
               _c(
-                "v-btn",
-                { attrs: { icon: "" } },
-                [_c("v-icon", [_vm._v("mdi-bell-outline")])],
+                "v-menu",
+                {
+                  attrs: {
+                    "close-on-content-click": false,
+                    "offset-y": "",
+                    transition: "slide-y-transition"
+                  },
+                  scopedSlots: _vm._u(
+                    [
+                      {
+                        key: "activator",
+                        fn: function(ref) {
+                          var on = ref.on
+                          var attrs = ref.attrs
+                          return [
+                            _c(
+                              "v-btn",
+                              _vm._g(
+                                _vm._b(
+                                  { attrs: { icon: "" } },
+                                  "v-btn",
+                                  attrs,
+                                  false
+                                ),
+                                on
+                              ),
+                              [_c("v-icon", [_vm._v("mdi-bell-outline")])],
+                              1
+                            )
+                          ]
+                        }
+                      }
+                    ],
+                    null,
+                    false,
+                    2141164591
+                  ),
+                  model: {
+                    value: _vm.notification_menu,
+                    callback: function($$v) {
+                      _vm.notification_menu = $$v
+                    },
+                    expression: "notification_menu"
+                  }
+                },
+                [
+                  _vm._v(" "),
+                  _c(
+                    "v-card",
+                    [
+                      _c(
+                        "v-list",
+                        [
+                          _c(
+                            "v-list-item",
+                            [
+                              _c(
+                                "v-list-item-avatar",
+                                [_c("v-icon", [_vm._v("mdi-bell")])],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-title", [
+                                    _vm._v(
+                                      "\n                                Notifications\n                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                                5 Unread\n                            "
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider"),
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        { attrs: { "two-line": "", "max-width": "400" } },
+                        [
+                          _c(
+                            "v-list-item-group",
+                            [
+                              _vm._l(_vm.notifications, function(item, index) {
+                                return [
+                                  _c(
+                                    "v-list-item",
+                                    { key: item.title },
+                                    [
+                                      [
+                                        _c(
+                                          "v-list-item-content",
+                                          [
+                                            _c("v-list-item-title", {
+                                              domProps: {
+                                                textContent: _vm._s(item.title)
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("v-list-item-subtitle", {
+                                              staticClass: "text--primary",
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  item.headline
+                                                )
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("v-list-item-subtitle", {
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  item.subtitle
+                                                )
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-item-action",
+                                          [
+                                            _c("v-list-item-action-text", {
+                                              domProps: {
+                                                textContent: _vm._s(item.action)
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    ],
+                                    2
+                                  ),
+                                  _vm._v(" "),
+                                  index < _vm.notifications.length - 1
+                                    ? _c("v-divider", { key: index })
+                                    : _vm._e()
+                                ]
+                              })
+                            ],
+                            2
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "primary", text: "" },
+                              on: {
+                                click: function($event) {
+                                  _vm.notification_menu = false
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        View All\n                    "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
                 1
               ),
               _vm._v(" "),
               _c(
                 "v-menu",
                 {
-                  attrs: { "offset-y": "" },
+                  attrs: {
+                    "close-on-content-click": false,
+                    "offset-y": "",
+                    transition: "slide-y-transition"
+                  },
                   scopedSlots: _vm._u(
                     [
                       {
@@ -38982,24 +39339,179 @@ var render = function() {
                     null,
                     false,
                     2671111894
-                  )
+                  ),
+                  model: {
+                    value: _vm.profile_menu,
+                    callback: function($$v) {
+                      _vm.profile_menu = $$v
+                    },
+                    expression: "profile_menu"
+                  }
                 },
                 [
                   _vm._v(" "),
                   _c(
-                    "v-list",
-                    _vm._l(5, function(n) {
-                      return _c(
-                        "v-list-item",
-                        { key: n, on: { click: function() {} } },
+                    "v-card",
+                    [
+                      _c(
+                        "v-list",
                         [
-                          _c("v-list-item-title", [
-                            _vm._v("Option " + _vm._s(n))
-                          ])
+                          _c(
+                            "v-list-item",
+                            [
+                              _c(
+                                "v-list-item-avatar",
+                                [
+                                  _c(
+                                    "v-sheet",
+                                    {
+                                      staticClass: "pa-4",
+                                      attrs: { color: "grey lighten-4" }
+                                    },
+                                    [
+                                      _c("v-avatar", {
+                                        staticClass: "mb-4",
+                                        attrs: {
+                                          color: "grey darken-1",
+                                          size: "64"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c(
+                                    "v-list-item-title",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          staticStyle: {
+                                            "text-decoration": "none",
+                                            color: "inherit"
+                                          },
+                                          attrs: { to: { name: "profile" } }
+                                        },
+                                        [
+                                          _c("span", [
+                                            _vm._v(_vm._s(_vm.user.name))
+                                          ])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-list-item-subtitle", [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(_vm.user.email) +
+                                        "\n                            "
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider"),
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          _c(
+                            "v-list-item",
+                            [
+                              _c(
+                                "v-list-item-action",
+                                [
+                                  _c("v-switch", {
+                                    attrs: { color: "purple" },
+                                    model: {
+                                      value: _vm.message,
+                                      callback: function($$v) {
+                                        _vm.message = $$v
+                                      },
+                                      expression: "message"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                            Enable messages\n                        "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            [
+                              _c(
+                                "v-list-item-action",
+                                [
+                                  _c("v-switch", {
+                                    attrs: { color: "purple" },
+                                    model: {
+                                      value: _vm.hints,
+                                      callback: function($$v) {
+                                        _vm.hints = $$v
+                                      },
+                                      expression: "hints"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                            Enable hints\n                        "
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "primary", text: "" },
+                              on: { click: _vm.onLogout }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        Logout\n                    "
+                              )
+                            ]
+                          )
                         ],
                         1
                       )
-                    }),
+                    ],
                     1
                   )
                 ],
