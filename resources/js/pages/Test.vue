@@ -4,9 +4,10 @@
         <v-snackbar
             :color="snackbar2.color"
             v-model="snackbar2.visible"
+            right
+            top
             :timeout="snackbar2.timeout"
             :outlined="snackbar2.outlined"
-            :top="snackbar2.top"
         >
             {{ snackbar2.text }}
 

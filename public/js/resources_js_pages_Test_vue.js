@@ -32,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -167,9 +168,10 @@ var render = function() {
         {
           attrs: {
             color: _vm.snackbar2.color,
+            right: "",
+            top: "",
             timeout: _vm.snackbar2.timeout,
-            outlined: _vm.snackbar2.outlined,
-            top: _vm.snackbar2.top
+            outlined: _vm.snackbar2.outlined
           },
           scopedSlots: _vm._u([
             {
