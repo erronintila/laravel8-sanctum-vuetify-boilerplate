@@ -46,7 +46,7 @@
                                     Notifications
                                 </v-list-item-title>
                                 <v-list-item-subtitle>
-                                    5 Unread
+                                    3 Unread
                                 </v-list-item-subtitle>
                             </v-list-item-content>
                         </v-list-item>

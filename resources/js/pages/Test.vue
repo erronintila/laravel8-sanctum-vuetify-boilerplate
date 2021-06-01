@@ -1,14 +1,21 @@
 <template>
     <div>
-        <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.mdAndUp" app>
-            <!--  -->
-        </v-navigation-drawer>
+        <v-btn @click="openSnackbar2">Open Snackbar</v-btn>
+        <v-snackbar
+            :color="snackbar2.color"
+            v-model="snackbar2.visible"
+            :timeout="snackbar2.timeout"
+            :outlined="snackbar2.outlined"
+            :top="snackbar2.top"
+        >
+            {{ snackbar2.text }}
 
-        <v-app-bar :clipped-left="$vuetify.breakpoint.mdAndUp" app>
-            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-            <v-toolbar-title>Application</v-toolbar-title>
-        </v-app-bar>
+            <template v-slot:action="{ attrs }">
+                <v-btn icon v-bind="attrs" @click="snackbar2.visible = false">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -16,8 +23,33 @@
 export default {
     data() {
         return {
-            drawer: null
-        }
+            snackbar2: {
+                outlined: true,
+                color: null,
+                icon: null,
+                mode: null,
+                position: "top",
+                text: null,
+                timeout: 7500,
+                title: null,
+                visible: false
+            }
+        };
     },
-}
+    methods: {
+        openSnackbar2() {
+            this.snackbar2 = {
+                outlined: true,
+                color: "blue",
+                icon: "mdi-info",
+                mode: "multi-line",
+                position: "top",
+                timeout: 2000,
+                title: "Welcome",
+                text: "Welcome",
+                visible: true
+            };
+        }
+    }
+};
 </script>

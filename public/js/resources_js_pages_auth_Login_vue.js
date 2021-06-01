@@ -79,14 +79,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login",
   data: function data() {
     return {
       valid: true,
+      show_password: false,
       form: {
         email: "",
         password: ""
@@ -246,140 +245,126 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass: "d-flex justify-center align-center",
+      staticStyle: { height: "90vh" }
+    },
     [
       _c(
-        "v-row",
-        { attrs: { "fill-height": "" } },
+        "v-card",
+        { attrs: { elevation: "0", light: "", width: "30rem" } },
         [
+          _c("v-card-title", [
+            _c("h3", { staticClass: "headline" }, [
+              _vm._v("\n                Login\n            ")
+            ])
+          ]),
+          _vm._v(" "),
           _c(
-            "v-col",
-            { attrs: { align: "center", justify: "center" } },
+            "v-card-text",
             [
               _c(
-                "v-card",
-                { attrs: { elevation: "0", light: "", width: "30rem" } },
+                "v-form",
+                {
+                  ref: "form",
+                  model: {
+                    value: _vm.valid,
+                    callback: function($$v) {
+                      _vm.valid = $$v
+                    },
+                    expression: "valid"
+                  }
+                },
                 [
-                  _c("v-card-title", [
-                    _c("h3", { staticClass: "headline" }, [
-                      _vm._v(
-                        "\n                        Login\n                    "
-                      )
-                    ])
-                  ]),
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Email Address",
+                      rules: _vm.rules.email,
+                      "error-messages": _vm.errors.email,
+                      type: "email",
+                      "prepend-icon": "mdi-email-outline"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      }
+                    },
+                    model: {
+                      value: _vm.form.email,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "email", $$v)
+                      },
+                      expression: "form.email"
+                    }
+                  }),
                   _vm._v(" "),
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Password",
+                      rules: _vm.rules.password,
+                      "error-messages": _vm.errors.password,
+                      type: _vm.show_password ? "text" : "password",
+                      "prepend-icon": "mdi-lock-outline",
+                      "append-icon": _vm.show_password
+                        ? "mdi-eye"
+                        : "mdi-eye-off"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      },
+                      "click:append": function($event) {
+                        _vm.show_password = !_vm.show_password
+                      }
+                    },
+                    model: {
+                      value: _vm.form.password,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "password", $$v)
+                      },
+                      expression: "form.password"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card-actions",
+            [
+              _c(
+                "div",
+                { staticClass: "d-flex" },
+                [
                   _c(
-                    "v-card-text",
-                    [
-                      _c(
-                        "v-form",
-                        {
-                          ref: "form",
-                          model: {
-                            value: _vm.valid,
-                            callback: function($$v) {
-                              _vm.valid = $$v
-                            },
-                            expression: "valid"
-                          }
-                        },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Email Address",
-                              rules: _vm.rules.email,
-                              "error-messages": _vm.errors.email,
-                              type: "email",
-                              "prepend-icon": "mdi-email-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.email,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "email", $$v)
-                              },
-                              expression: "form.email"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Password",
-                              rules: _vm.rules.password,
-                              "error-messages": _vm.errors.password,
-                              type: "password",
-                              "prepend-icon": "mdi-lock-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.password,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "password", $$v)
-                              },
-                              expression: "form.password"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "d-flex" },
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "mr-4",
-                              attrs: {
-                                text: "",
-                                color: "blue",
-                                to: { name: "register" }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Register\n                        "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "mr-4",
-                          attrs: { color: "blue", dark: "" },
-                          on: { click: _vm.onLogin }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Login\n                    "
-                          )
-                        ]
-                      )
-                    ],
-                    1
+                    "v-btn",
+                    {
+                      staticClass: "mr-4",
+                      attrs: {
+                        text: "",
+                        color: "blue",
+                        to: { name: "register" }
+                      }
+                    },
+                    [_vm._v("\n                    Register\n                ")]
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mr-4",
+                  attrs: { color: "blue", dark: "" },
+                  on: { click: _vm.onLogin }
+                },
+                [_vm._v("\n                Login\n            ")]
               )
             ],
             1

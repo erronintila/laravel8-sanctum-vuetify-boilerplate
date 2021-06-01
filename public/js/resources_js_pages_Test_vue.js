@@ -25,11 +25,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      drawer: null
+      snackbar2: {
+        outlined: true,
+        color: null,
+        icon: null,
+        mode: null,
+        position: "top",
+        text: null,
+        timeout: 7500,
+        title: null,
+        visible: false
+      }
     };
+  },
+  methods: {
+    openSnackbar2: function openSnackbar2() {
+      this.snackbar2 = {
+        outlined: true,
+        color: "blue",
+        icon: "mdi-info",
+        mode: "multi-line",
+        position: "top",
+        timeout: 2000,
+        title: "Welcome",
+        text: "Welcome",
+        visible: true
+      };
+    }
   }
 });
 
@@ -126,32 +158,56 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("v-navigation-drawer", {
-        attrs: { clipped: _vm.$vuetify.breakpoint.mdAndUp, app: "" },
-        model: {
-          value: _vm.drawer,
-          callback: function($$v) {
-            _vm.drawer = $$v
-          },
-          expression: "drawer"
-        }
-      }),
+      _c("v-btn", { on: { click: _vm.openSnackbar2 } }, [
+        _vm._v("Open Snackbar")
+      ]),
       _vm._v(" "),
       _c(
-        "v-app-bar",
-        { attrs: { "clipped-left": _vm.$vuetify.breakpoint.mdAndUp, app: "" } },
-        [
-          _c("v-app-bar-nav-icon", {
-            on: {
-              click: function($event) {
-                _vm.drawer = !_vm.drawer
+        "v-snackbar",
+        {
+          attrs: {
+            color: _vm.snackbar2.color,
+            timeout: _vm.snackbar2.timeout,
+            outlined: _vm.snackbar2.outlined,
+            top: _vm.snackbar2.top
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "action",
+              fn: function(ref) {
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._b(
+                      {
+                        attrs: { icon: "" },
+                        on: {
+                          click: function($event) {
+                            _vm.snackbar2.visible = false
+                          }
+                        }
+                      },
+                      "v-btn",
+                      attrs,
+                      false
+                    ),
+                    [_c("v-icon", [_vm._v("mdi-close")])],
+                    1
+                  )
+                ]
               }
             }
-          }),
-          _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Application")])
-        ],
-        1
+          ]),
+          model: {
+            value: _vm.snackbar2.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar2, "visible", $$v)
+            },
+            expression: "snackbar2.visible"
+          }
+        },
+        [_vm._v("\n        " + _vm._s(_vm.snackbar2.text) + "\n\n        ")]
       )
     ],
     1

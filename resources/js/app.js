@@ -6,7 +6,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import router from "./router/index";
 import store from "./store/index";
-import vuetify from './vuetify';
+import vuetify from './plugins/vuetify';
 import App from "./components/layouts/App";
 
 Vue.use(VueRouter);

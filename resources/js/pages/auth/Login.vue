@@ -1,55 +1,53 @@
 <template>
-    <div>
-        <v-row fill-height>
-            <v-col align="center" justify="center">
-                <v-card elevation="0" light width="30rem">
-                    <v-card-title>
-                        <h3 class="headline">
-                            Login
-                        </h3>
-                    </v-card-title>
+    <div class="d-flex justify-center align-center" style="height:90vh">
+        <v-card elevation="0" light width="30rem">
+            <v-card-title>
+                <h3 class="headline">
+                    Login
+                </h3>
+            </v-card-title>
 
-                    <v-card-text>
-                        <v-form ref="form" v-model="valid">
-                            <v-text-field
-                                v-model="form.email"
-                                label="Email Address"
-                                :rules="rules.email"
-                                :error-messages="errors.email"
-                                @input="errors = []"
-                                type="email"
-                                prepend-icon="mdi-email-outline"
-                            ></v-text-field>
-                            <v-text-field
-                                v-model="form.password"
-                                label="Password"
-                                :rules="rules.password"
-                                :error-messages="errors.password"
-                                @input="errors = []"
-                                type="password"
-                                prepend-icon="mdi-lock-outline"
-                            ></v-text-field>
-                        </v-form>
-                    </v-card-text>
-                    <v-card-actions>
-                        <div class="d-flex">
-                            <v-btn
-                                text
-                                color="blue"
-                                class="mr-4"
-                                :to="{ name: 'register' }"
-                            >
-                                Register
-                            </v-btn>
-                        </div>
-                        <v-spacer></v-spacer>
-                        <v-btn color="blue" class="mr-4" dark @click="onLogin">
-                            Login
-                        </v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-col>
-        </v-row>
+            <v-card-text>
+                <v-form ref="form" v-model="valid">
+                    <v-text-field
+                        v-model="form.email"
+                        label="Email Address"
+                        :rules="rules.email"
+                        :error-messages="errors.email"
+                        @input="errors = []"
+                        type="email"
+                        prepend-icon="mdi-email-outline"
+                    ></v-text-field>
+                    <v-text-field
+                        v-model="form.password"
+                        label="Password"
+                        :rules="rules.password"
+                        :error-messages="errors.password"
+                        @input="errors = []"
+                        :type="show_password ? 'text' : 'password'"
+                        prepend-icon="mdi-lock-outline"
+                        :append-icon="show_password ? 'mdi-eye' : 'mdi-eye-off'"
+                        @click:append="show_password = !show_password"
+                    ></v-text-field>
+                </v-form>
+            </v-card-text>
+            <v-card-actions>
+                <div class="d-flex">
+                    <v-btn
+                        text
+                        color="blue"
+                        class="mr-4"
+                        :to="{ name: 'register' }"
+                    >
+                        Register
+                    </v-btn>
+                </div>
+                <v-spacer></v-spacer>
+                <v-btn color="blue" class="mr-4" dark @click="onLogin">
+                    Login
+                </v-btn>
+            </v-card-actions>
+        </v-card>
     </div>
 </template>
 
@@ -60,6 +58,7 @@ export default {
     data() {
         return {
             valid: true,
+            show_password: false,
             form: {
                 email: "",
                 password: ""

@@ -104,7 +104,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login",
@@ -113,6 +112,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     return {
       valid: true,
+      show_password: false,
+      show_confirm_password: false,
       form: {
         name: "",
         email: "",
@@ -286,198 +287,185 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass: "d-flex justify-center align-center",
+      staticStyle: { height: "90vh" }
+    },
     [
       _c(
-        "v-row",
+        "v-card",
+        { attrs: { elevation: "0", light: "", width: "30rem" } },
         [
           _c(
-            "v-col",
-            { attrs: { align: "center", justify: "center" } },
+            "v-card-title",
             [
               _c(
-                "v-card",
-                { attrs: { elevation: "0", light: "", width: "30rem" } },
+                "v-layout",
+                { attrs: { "align-center": "", "justify-space-between": "" } },
+                [
+                  _c("h3", { staticClass: "headline" }, [
+                    _vm._v("\n                    Register\n                ")
+                  ])
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card-text",
+            [
+              _c(
+                "v-form",
+                {
+                  ref: "form",
+                  model: {
+                    value: _vm.valid,
+                    callback: function($$v) {
+                      _vm.valid = $$v
+                    },
+                    expression: "valid"
+                  }
+                },
+                [
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Name",
+                      rules: _vm.rules.name,
+                      "error-messages": _vm.errors.name,
+                      "prepend-icon": "mdi-account-outline"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      }
+                    },
+                    model: {
+                      value: _vm.form.name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "name", $$v)
+                      },
+                      expression: "form.name"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Email Address",
+                      rules: _vm.rules.email,
+                      "error-messages": _vm.errors.email,
+                      type: "email",
+                      "prepend-icon": "mdi-email-outline"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      }
+                    },
+                    model: {
+                      value: _vm.form.email,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "email", $$v)
+                      },
+                      expression: "form.email"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Password",
+                      rules: _vm.rules.password,
+                      "error-messages": _vm.errors.password,
+                      "prepend-icon": "mdi-lock-outline",
+                      type: _vm.show_password ? "text" : "password",
+                      "append-icon": _vm.show_password
+                        ? "mdi-eye"
+                        : "mdi-eye-off"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      },
+                      "click:append": function($event) {
+                        _vm.show_password = !_vm.show_password
+                      }
+                    },
+                    model: {
+                      value: _vm.form.password,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "password", $$v)
+                      },
+                      expression: "form.password"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-text-field", {
+                    attrs: {
+                      label: "Confirm Password",
+                      rules: _vm.rules.password_confirmation,
+                      "error-messages": _vm.errors.password_confirmation,
+                      "prepend-icon": "mdi-lock-outline",
+                      type: _vm.show_confirm_password ? "text" : "password",
+                      "append-icon": _vm.show_confirm_password
+                        ? "mdi-eye"
+                        : "mdi-eye-off"
+                    },
+                    on: {
+                      input: function($event) {
+                        _vm.errors = []
+                      },
+                      "click:append": function($event) {
+                        _vm.show_confirm_password = !_vm.show_confirm_password
+                      }
+                    },
+                    model: {
+                      value: _vm.form.password_confirmation,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "password_confirmation", $$v)
+                      },
+                      expression: "form.password_confirmation"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card-actions",
+            [
+              _c(
+                "div",
+                { staticClass: "d-flex" },
                 [
                   _c(
-                    "v-card-title",
-                    [
-                      _c(
-                        "v-layout",
-                        {
-                          attrs: {
-                            "align-center": "",
-                            "justify-space-between": ""
-                          }
-                        },
-                        [
-                          _c("h3", { staticClass: "headline" }, [
-                            _vm._v(
-                              "\n                            Register\n                        "
-                            )
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    [
-                      _c(
-                        "v-form",
-                        {
-                          ref: "form",
-                          model: {
-                            value: _vm.valid,
-                            callback: function($$v) {
-                              _vm.valid = $$v
-                            },
-                            expression: "valid"
-                          }
-                        },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Name",
-                              rules: _vm.rules.name,
-                              "error-messages": _vm.errors.name,
-                              "prepend-icon": "mdi-account-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "name", $$v)
-                              },
-                              expression: "form.name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Email Address",
-                              rules: _vm.rules.email,
-                              "error-messages": _vm.errors.email,
-                              type: "email",
-                              "prepend-icon": "mdi-email-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.email,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "email", $$v)
-                              },
-                              expression: "form.email"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Password",
-                              rules: _vm.rules.password,
-                              "error-messages": _vm.errors.password,
-                              type: "password",
-                              "prepend-icon": "mdi-lock-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.password,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "password", $$v)
-                              },
-                              expression: "form.password"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              label: "Confirm Password",
-                              rules: _vm.rules.password_confirmation,
-                              "error-messages":
-                                _vm.errors.password_confirmation,
-                              type: "password",
-                              "prepend-icon": "mdi-lock-outline"
-                            },
-                            on: {
-                              input: function($event) {
-                                _vm.errors = []
-                              }
-                            },
-                            model: {
-                              value: _vm.form.password_confirmation,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "password_confirmation", $$v)
-                              },
-                              expression: "form.password_confirmation"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "d-flex" },
-                        [
-                          _c(
-                            "v-btn",
-                            {
-                              staticClass: "mr-4",
-                              attrs: {
-                                text: "",
-                                color: "primary",
-                                to: { name: "login" }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Login\n                        "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "mr-4",
-                          attrs: { color: "blue", dark: "" },
-                          on: { click: _vm.onRegister }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Register\n                    "
-                          )
-                        ]
-                      )
-                    ],
-                    1
+                    "v-btn",
+                    {
+                      staticClass: "mr-4",
+                      attrs: {
+                        text: "",
+                        color: "primary",
+                        to: { name: "login" }
+                      }
+                    },
+                    [_vm._v("\n                    Login\n                ")]
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mr-4",
+                  attrs: { color: "blue", dark: "" },
+                  on: { click: _vm.onRegister }
+                },
+                [_vm._v("\n                Register\n            ")]
               )
             ],
             1
