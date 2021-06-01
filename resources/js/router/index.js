@@ -12,18 +12,23 @@ const router = new VueRouter({
 
 export default router;
 
-// router.beforeEach((to, from, next) => {
-//     if (
-//         to.matched.some(record => record.meta.auth) &&
-//         !store.getters.authenticated
-//     ) {
-//         next({ name: "login" });
-//     } else if (to.matched.some(record => record.meta.guest)) {
-//         next({ name: "home" });
-//     } else {
-//         next();
-//     }
-// });
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.auth)) {
+        if (!store.getters.authenticated) {
+            next({ name: "login" });
+        } else {
+            next();
+        }
+    } else if (to.matched.some(record => record.meta.guest)) {
+        if (!store.getters.authenticated) {
+            next({ name: "login" });
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 // router.beforeEach((to, from, next) => {
 //     if (to.matched.some(record => record.meta.auth)) {

@@ -53,7 +53,7 @@
                     </v-list>
 
                     <v-divider></v-divider>
-                    
+
                     <v-list two-line max-width="400">
                         <v-list-item-group>
                             <template v-for="(item, index) in notifications">
