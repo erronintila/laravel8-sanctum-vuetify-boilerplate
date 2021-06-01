@@ -1,6 +1,6 @@
 <template>
-    <div fill-height>
-        <v-row>
+    <div>
+        <v-row fill-height>
             <v-col align="center" justify="center">
                 <v-card elevation="0" light width="30rem">
                     <v-card-title>

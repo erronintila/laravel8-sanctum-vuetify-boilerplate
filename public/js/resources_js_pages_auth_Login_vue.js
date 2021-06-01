@@ -246,10 +246,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { "fill-height": "" } },
     [
       _c(
         "v-row",
+        { attrs: { "fill-height": "" } },
         [
           _c(
             "v-col",
