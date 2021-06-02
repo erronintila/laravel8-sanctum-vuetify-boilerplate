@@ -2487,9 +2487,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router/index */ "./resources/js/router/index.js");
+/* harmony import */ var _plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/vuetify */ "./resources/js/plugins/vuetify.js");
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
-/* harmony import */ var _plugins_vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/vuetify */ "./resources/js/plugins/vuetify.js");
+/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/index */ "./resources/js/router/index.js");
 /* harmony import */ var _components_layouts_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/layouts/App */ "./resources/js/components/layouts/App.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -2504,9 +2504,9 @@ vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
 _store_index__WEBPACK_IMPORTED_MODULE_1__.default.dispatch("auth/AUTH_USER").then(function () {
   new vue__WEBPACK_IMPORTED_MODULE_4__.default({
     el: "#app",
-    router: _router_index__WEBPACK_IMPORTED_MODULE_0__.default,
     store: _store_index__WEBPACK_IMPORTED_MODULE_1__.default,
-    vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_2__.default,
+    router: _router_index__WEBPACK_IMPORTED_MODULE_2__.default,
+    vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__.default,
     components: {
       App: _components_layouts_App__WEBPACK_IMPORTED_MODULE_3__.default
     }
@@ -2641,9 +2641,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/index */ "./resources/js/store/index.js");
-/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth */ "./resources/js/router/auth.js");
-/* harmony import */ var _pages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages */ "./resources/js/router/pages.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth */ "./resources/js/router/auth.js");
+/* harmony import */ var _pages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages */ "./resources/js/router/pages.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/index */ "./resources/js/store/index.js");
 /* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -2665,68 +2665,34 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
   mode: "history",
   base: process.env.BASE_URL,
-  routes: [].concat(_toConsumableArray(_auth__WEBPACK_IMPORTED_MODULE_1__.default), _toConsumableArray(_pages__WEBPACK_IMPORTED_MODULE_2__.default))
+  routes: [].concat(_toConsumableArray(_auth__WEBPACK_IMPORTED_MODULE_0__.default), _toConsumableArray(_pages__WEBPACK_IMPORTED_MODULE_1__.default))
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router); // router.beforeEach((to, from, next) => {
-// if (to.matched.some(record => record.meta.auth)) {
-//     if (!store.getters.authenticated) {
-//         next({ name: "login" });
-//     } else {
-//         next();
-//     }
-// } else if (to.matched.some(record => record.meta.guest)) {
-//     if (!store.getters.authenticated) {
-//         next({ name: "login" });
-//     } else {
-//         next();
-//     }
-// } else {
-//     next();
-// }
-// });
-// router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.auth)) {
-//         console.log(store.getters.authenticated);
-//         if (!store.getters.authenticated) {
-//             next({ name: "login" });
-//         } else {
-//             next();
-//         }
-//     } else {
-//         next();
-//     }
-// });
-// router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.requiresAuth)) {
-//         if (!store.getters.authenticated) {
-//             next({ name: "login" });
-//         } else {
-//             next();
-//             // if (to.matched.some(record => record.meta.requiresAdmin)) {
-//             //     if (store.getters.admin == 1) {
-//             //         next();
-//             //     } else {
-//             //         next({ name: "home" });
-//             //     }
-//             // } else {
-//             //     next();
-//             // }
-//         }
-//     } else if (to.matched.some(record => record.meta.requiresVisitor)) {
-//         if (!store.getters.authenticated) {
-//             next();
-//         } else {
-//             next({ name: "home" });
-//             // if (store.getters.admin) {
-//             //     next({ name: "dashboard" });
-//             // } else {
-//             //     next({ name: "home" });
-//             // }
-//         }
-//     } else {
-//         next();
-//     }
-// });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.auth;
+  })) {
+    if (!_store_index__WEBPACK_IMPORTED_MODULE_2__.default.getters["auth/authenticated"]) {
+      next({
+        name: "login"
+      });
+    } else {
+      next();
+    }
+  } else if (to.matched.some(function (record) {
+    return record.meta.guest;
+  })) {
+    if (!_store_index__WEBPACK_IMPORTED_MODULE_2__.default.getters["auth/authenticated"]) {
+      next();
+    } else {
+      next({
+        name: "home"
+      });
+    }
+  } else {
+    next();
+  }
+});
 
 /***/ }),
 
