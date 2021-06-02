@@ -5,7 +5,6 @@
         flat
         clipped-left
         app
-        v-if="user && authenticated"
     >
         <v-app-bar-nav-icon @click.stop="openCloseDrawer"></v-app-bar-nav-icon>
 
@@ -188,10 +187,6 @@ export default {
         user: {
             type: Object,
             default: () => {}
-        },
-        authenticated: {
-            type: Boolean,
-            default: false
         },
         left_drawer: {
             type: Boolean,

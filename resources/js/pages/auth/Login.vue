@@ -15,6 +15,7 @@
                         :rules="rules.email"
                         :error-messages="errors.email"
                         @input="errors = []"
+                        @keyup.enter="onLogin"
                         type="email"
                         prepend-icon="mdi-email-outline"
                     ></v-text-field>
@@ -24,6 +25,7 @@
                         :rules="rules.password"
                         :error-messages="errors.password"
                         @input="errors = []"
+                        @keyup.enter="onLogin"
                         :type="show_password ? 'text' : 'password'"
                         prepend-icon="mdi-lock-outline"
                         :append-icon="show_password ? 'mdi-eye' : 'mdi-eye-off'"

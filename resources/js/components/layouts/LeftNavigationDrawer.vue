@@ -3,7 +3,6 @@
         app
         :clipped="$vuetify.breakpoint.mdAndUp"
         v-model="left_drawer"
-        v-if="user && authenticated"
     >
         <template v-slot:prepend>
             <v-list-item two-line>
@@ -107,10 +106,6 @@ export default {
         user: {
             type: Object,
             default: () => {}
-        },
-        authenticated: {
-            type: Boolean,
-            default: false
         },
         left_drawer: {
             type: Boolean,

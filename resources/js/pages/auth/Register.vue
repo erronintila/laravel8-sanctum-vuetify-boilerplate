@@ -17,6 +17,7 @@
                         :rules="rules.name"
                         :error-messages="errors.name"
                         @input="errors = []"
+                        @keyup.enter="onRegister"
                         prepend-icon="mdi-account-outline"
                     ></v-text-field>
                     <v-text-field
@@ -25,6 +26,7 @@
                         :rules="rules.email"
                         :error-messages="errors.email"
                         @input="errors = []"
+                        @keyup.enter="onRegister"
                         type="email"
                         prepend-icon="mdi-email-outline"
                     ></v-text-field>
@@ -34,6 +36,7 @@
                         :rules="rules.password"
                         :error-messages="errors.password"
                         @input="errors = []"
+                        @keyup.enter="onRegister"
                         prepend-icon="mdi-lock-outline"
                         :type="show_password ? 'text' : 'password'"
                         :append-icon="show_password ? 'mdi-eye' : 'mdi-eye-off'"
@@ -45,6 +48,7 @@
                         :rules="rules.password_confirmation"
                         :error-messages="errors.password_confirmation"
                         @input="errors = []"
+                        @keyup.enter="onRegister"
                         prepend-icon="mdi-lock-outline"
                         :type="show_confirm_password ? 'text' : 'password'"
                         :append-icon="

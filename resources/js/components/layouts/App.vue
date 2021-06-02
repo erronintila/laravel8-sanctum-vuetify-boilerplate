@@ -1,15 +1,15 @@
 <template>
     <v-app>
         <application-bar
+            v-if="user && authenticated"
             :user="user"
-            :authenticated="authenticated"
             :left_drawer="left_drawer"
             @open-close-drawer="openCloseDrawer"
         ></application-bar>
 
         <left-navigation-drawer
+            v-if="user && authenticated"
             :user="user"
-            :authenticated="authenticated"
             :left_drawer="left_drawer"
             :left_drawer_items="left_drawer_items"
         ></left-navigation-drawer>
@@ -21,6 +21,7 @@
         </v-main>
 
         <page-footer
+            v-if="user && authenticated"
             :company_name="footer.company_name"
             :year="footer.year"
         ></page-footer>

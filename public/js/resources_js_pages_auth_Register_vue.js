@@ -104,6 +104,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login",
@@ -338,6 +342,21 @@ var render = function() {
                     on: {
                       input: function($event) {
                         _vm.errors = []
+                      },
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.onRegister($event)
                       }
                     },
                     model: {
@@ -360,6 +379,21 @@ var render = function() {
                     on: {
                       input: function($event) {
                         _vm.errors = []
+                      },
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.onRegister($event)
                       }
                     },
                     model: {
@@ -385,6 +419,21 @@ var render = function() {
                     on: {
                       input: function($event) {
                         _vm.errors = []
+                      },
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.onRegister($event)
                       },
                       "click:append": function($event) {
                         _vm.show_password = !_vm.show_password
@@ -413,6 +462,21 @@ var render = function() {
                     on: {
                       input: function($event) {
                         _vm.errors = []
+                      },
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.onRegister($event)
                       },
                       "click:append": function($event) {
                         _vm.show_confirm_password = !_vm.show_confirm_password
