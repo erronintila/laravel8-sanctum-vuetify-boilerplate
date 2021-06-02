@@ -1,5 +1,5 @@
 <template>
-    <v-footer fixed padless>
+    <v-footer fixed padless v-if="company_name !== ''">
         <v-col class="text-right" cols="12">
             <small>
                 © {{ year }} Copyright — <strong>{{ company_name }}</strong>
@@ -11,11 +11,15 @@
 <script>
 export default {
     name: "page-footer",
-    data() {
-        return {
-            company_name: "Twin-Circa Marketing",
-            year: "2020"
-        };
+    props: {
+        company_name: {
+            type: String,
+            default: ""
+        },
+        year: {
+            type: String,
+            default: ""
+        }
     }
 };
 </script>
