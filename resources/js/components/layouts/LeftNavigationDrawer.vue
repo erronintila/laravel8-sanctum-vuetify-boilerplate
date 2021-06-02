@@ -2,7 +2,7 @@
     <v-navigation-drawer
         app
         :clipped="$vuetify.breakpoint.mdAndUp"
-        v-model="left_drawer"
+        v-model="drawer"
     >
         <template v-slot:prepend>
             <v-list-item two-line>
@@ -116,6 +116,11 @@ export default {
             default: () => []
         }
     },
+    data() {
+        return {
+            drawer: false
+        };
+    },
     methods: {
         ...mapActions({
             logout: "auth/AUTH_LOGOUT"
@@ -129,6 +134,17 @@ export default {
                     alert(err);
                 }
             }
+        }
+    },
+    watch: {
+        left_drawer: {
+            immediate: true,
+            handler(newValue) {
+                this.drawer = newValue;
+            }
+        },
+        drawer() {
+            this.$emit("open-close-drawer", this.drawer);
         }
     }
 };

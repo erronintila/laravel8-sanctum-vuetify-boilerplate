@@ -1896,6 +1896,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2394,6 +2395,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   },
+  data: function data() {
+    return {
+      drawer: false
+    };
+  },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)({
     logout: "auth/AUTH_LOGOUT"
   })), {}, {
@@ -2435,7 +2441,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[1, 7]]);
       }))();
     }
-  })
+  }),
+  watch: {
+    left_drawer: {
+      immediate: true,
+      handler: function handler(newValue) {
+        this.drawer = newValue;
+      }
+    },
+    drawer: function drawer() {
+      this.$emit("open-close-drawer", this.drawer);
+    }
+  }
 });
 
 /***/ }),
@@ -39471,7 +39488,8 @@ var render = function() {
               user: _vm.user,
               left_drawer: _vm.left_drawer,
               left_drawer_items: _vm.left_drawer_items
-            }
+            },
+            on: { "open-close-drawer": _vm.openCloseDrawer }
           })
         : _vm._e(),
       _vm._v(" "),
@@ -40036,11 +40054,11 @@ var render = function() {
         }
       ]),
       model: {
-        value: _vm.left_drawer,
+        value: _vm.drawer,
         callback: function($$v) {
-          _vm.left_drawer = $$v
+          _vm.drawer = $$v
         },
-        expression: "left_drawer"
+        expression: "drawer"
       }
     },
     [

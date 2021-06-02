@@ -12,6 +12,7 @@
             :user="user"
             :left_drawer="left_drawer"
             :left_drawer_items="left_drawer_items"
+            @open-close-drawer="openCloseDrawer"
         ></left-navigation-drawer>
 
         <v-main>
